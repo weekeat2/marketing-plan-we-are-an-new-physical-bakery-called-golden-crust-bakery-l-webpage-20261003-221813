@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Crust Bakery - Fresh Bread, Cakes & Breakfast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #faf7f2;
+      --bg-secondary: #fff5ed;
+      --surface-primary: #ffffff;
+      --surface-secondary: #fef3e8;
+      --text-primary: #2c2416;
+      --text-secondary: #6b6158;
+      --accent-warm: #d4884a;
+      --accent-warm-dark: #c17539;
+      --accent-light: #f0e5d8;
+      --border-color: #e8ddd2;
+      --shadow-sm: 0 2px 8px rgba(44, 36, 22, 0.08);
+      --shadow-md: 0 4px 16px rgba(44, 36, 22, 0.12);
+      --spacing-xs: 8px;
+      --spacing-sm: 16px;
+      --spacing-md: 24px;
+      --spacing-lg: 40px;
+      --spacing-xl: 64px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: 24px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-inline: 16px;
+      }
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--surface-primary);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent-warm);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: var(--spacing-lg);
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-warm);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--surface-secondary) 100%);
+      padding: var(--spacing-xl) 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: center;
+      gap: var(--spacing-lg);
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      line-height: 1.2;
+      margin-bottom: var(--spacing-md);
+      color: var(--text-primary);
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-md);
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: var(--accent-warm);
+      color: white;
+      padding: 16px 40px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .hero-cta:hover {
+      background-color: var(--accent-warm-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-cta:focus {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 400px;
+      background: linear-gradient(135deg, #e8d4c0 0%, #dcc4b0 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-visual svg {
+      width: 80%;
+      height: 80%;
+      filter: drop-shadow(var(--shadow-md));
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 36px;
+      }
+
+      .hero-text p {
+        font-size: 16px;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+
+      .hero-visual {
+        height: 300px;
+      }
+
+      .hero {
+        padding: var(--spacing-lg) 0;
+      }
+    }
+
+    /* Problem Section */
+    .problem-section {
+      background-color: var(--surface-primary);
+      padding: var(--spacing-xl) 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .problem-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-bottom: var(--spacing-lg);
+      color: var(--text-primary);
+    }
+
+    .personas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .persona-card {
+      background-color: var(--surface-secondary);
+      padding: var(--spacing-md);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .persona-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .persona-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--accent-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .persona-card h3 {
+      font-size: 18px;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-primary);
+    }
+
+    .persona-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .problem-heading {
+        font-size: 28px;
+      }
+
+      .problem-section {
+        padding: var(--spacing-lg) 0;
+      }
+    }
+
+    /* Products Section */
+    .products-section {
+      background-color: var(--bg-secondary);
+      padding: var(--spacing-xl) 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-bottom: var(--spacing-md);
+      color: var(--text-primary);
+    }
+
+    .section-subtext {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-lg);
+      max-width: 600px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .product-card {
+      background-color: var(--surface-primary);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #d4a574 0%, #c08a52 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    .product-content {
+      padding: var(--spacing-md);
+    }
+
+    .product-content h3 {
+      font-size: 18px;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-primary);
+    }
+
+    .product-content p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .section-heading {
+        font-size: 28px;
+      }
+
+      .products-section {
+        padding: var(--spacing-lg) 0;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--spacing-md);
+      }
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+      background-color: var(--surface-primary);
+      padding: var(--spacing-xl) 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .benefits-intro {
+      max-width: 700px;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .benefit-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .benefit-icon {
+      width: 56px;
+      height: 56px;
+      background-color: var(--accent-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .benefit-item h3 {
+      font-size: 18px;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .benefit-item p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .benefits-section {
+        padding: var(--spacing-lg) 0;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--spacing-md);
+      }
+    }
+
+    /* Trust Section */
+    .trust-section {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--surface-secondary) 100%);
+      padding: var(--spacing-xl) 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .trust-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: center;
+      gap: var(--spacing-lg);
+    }
+
+    .trust-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      margin-bottom: var(--spacing-md);
+      color: var(--text-primary);
+    }
+
+    .trust-text p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-md);
+      line-height: 1.7;
+    }
+
+    .trust-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .trust-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    .trust-list li::before {
+      content: "✓";
+      color: var(--accent-warm);
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .trust-visual {
+      height: 350px;
+      background: linear-gradient(135deg, #f0d9c4 0%, #e8cdb8 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    @media (max-width: 768px) {
+      .trust-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+
+      .trust-text h2 {
+        font-size: 28px;
+      }
+
+      .trust-visual {
+        height: 250px;
+      }
+
+      .trust-section {
+        padding: var(--spacing-lg) 0;
+      }
+    }
+
+    /* Interest Section */
+    .interest-section {
+      background-color: var(--surface-primary);
+      padding: var(--spacing-xl) 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .interest-header {
+      max-width: 700px;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .interest-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      margin-bottom: var(--spacing-md);
+      color: var(--text-primary);
+    }
+
+    .interest-header p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .forms-container {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--spacing-lg);
+    }
+
+    .form-wrapper {
+      background-color: var(--surface-secondary);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .form-wrapper.primary {
+      grid-column: 1 / -1;
+      max-width: 600px;
+    }
+
+    .form-wrapper.secondary {
+      grid-column: 1 / -1;
+      background-color: var(--accent-light);
+      max-width: 600px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    form h3 {
+      font-size: 20px;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    form p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-md);
+      line-height: 1.6;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    input {
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: var(--text-primary);
+      background-color: var(--surface-primary);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--accent-warm);
+      box-shadow: 0 0 0 3px rgba(212, 136, 74, 0.1);
+    }
+
+    button[type="submit"] {
+      background-color: var(--accent-warm);
+      color: white;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--accent-warm-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    button[type="submit"]:focus {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .form-status {
+      font-size: 14px;
+      padding: var(--spacing-sm);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      min-height: 24px;
+      display: none;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    .form-status.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .form-status.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    @media (max-width: 768px) {
+      .forms-container {
+        grid-template-columns: 1fr;
+      }
+
+      .form-wrapper.primary {
+        grid-column: 1;
+      }
+
+      .form-wrapper.secondary {
+        grid-column: 1;
+      }
+
+      .interest-section {
+        padding: var(--spacing-lg) 0;
+      }
+
+      .interest-header h2 {
+        font-size: 28px;
+      }
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      background-color: var(--bg-secondary);
+      padding: var(--spacing-xl) 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .faq-content {
+      max-width: 800px;
+    }
+
+    .faq-item {
+      background-color: var(--surface-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--spacing-md);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: var(--spacing-md);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--text-primary);
+      background-color: var(--surface-primary);
+      transition: background-color 0.3s ease;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+    }
+
+    .faq-question:hover {
+      background-color: var(--accent-light);
+    }
+
+    .faq-toggle {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-answer p {
+      padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .faq-section {
+        padding: var(--spacing-lg) 0;
+      }
+
+      .faq-question {
+        font-size: 15px;
+        padding: var(--spacing-md);
+      }
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--text-primary);
+      color: white;
+      padding: var(--spacing-lg) 0 var(--spacing-md);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .footer-section h4 {
+      font-size: 16px;
+      margin-bottom: var(--spacing-sm);
+      color: white;
+    }
+
+    .footer-section p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section li {
+      font-size: 13px;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .footer-section a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent-warm);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: var(--spacing-md);
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--accent-warm);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Utility */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="nav-container">
+        <a href="#" class="brand">Golden Crust</a>
+        <ul class="nav-links">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#benefits">Why Us</a></li>
+          <li><a href="#interest">Get Updates</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Fresh Bread, Fast Service, Affordable Treats</h1>
+          <p>Whether you're rushing to work, planning a family gathering, or looking for budget-friendly snacks, Golden Crust Bakery delivers freshly baked goods that fit your lifestyle.</p>
+          <a href="#interest" class="hero-cta">Register My Interest</a>
+        </div>
+        <div class="hero-visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" fill="#d4a574" opacity="0.2"/>
+            <path d="M 60 120 Q 80 140 100 140 Q 120 140 140 120 L 140 100 L 60 100 Z" fill="#d4a574"/>
+            <rect x="65" y="90" width="70" height="15" rx="3" fill="#c08a52"/>
+            <circle cx="80" cy="85" r="6" fill="#f0e5d8"/>
+            <circle cx="100" cy="82" r="6" fill="#f0e5d8"/>
+            <circle cx="120" cy="85" r="6" fill="#f0e5d8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem/Customer Needs Section -->
+  <section class="problem-section">
+    <div class="container">
+      <h2 class="problem-heading">Made for Your Lifestyle</h2>
+      <div class="personas">
+        <div class="persona-card">
+          <div class="persona-icon">⏱️</div>
+          <h3>Commuter Colin</h3>
+          <p>Needs fresh, grab-and-go breakfast items on weekday mornings. Values speed and reliability to start the day right.</p>
+        </div>
+        <div class="persona-card">
+          <div class="persona-icon">👨‍👩‍👧‍👦</div>
+          <h3>Family Farah</h3>
+          <p>Seeks custom cakes for celebrations and quality treats the whole family enjoys. Wants reliable service and personal touch.</p>
+        </div>
+        <div class="persona-card">
+          <div class="persona-icon">📚</div>
+          <h3>Student Siti</h3>
+          <p>Looks for trendy, Instagrammable snacks and affordable breakfast options. Appreciates budget-friendly quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section" id="products">
+    <div class="container">
+      <h2 class="section-heading">What We Offer</h2>
+      <p class="section-subtext">From morning staples to celebration centrepieces, every item is crafted fresh daily with quality ingredients.</p>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">🥐</div>
+          <div class="product-content">
+            <h3>Fresh Bread</h3>
+            <p>Artisan loaves and rolls baked daily. Perfect for breakfast or dinner, always warm and fresh.</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">🥪</div>
+          <div class="product-content">
+            <h3>Grab-and-Go Breakfast</h3>
+            <p>Ready-to-eat pastries, breakfast wraps, and coffee pairings for busy mornings and commutes.</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">🎂</div>
+          <div class="product-content">
+            <h3>Custom Cakes</h3>
+            <p>Personalised cakes for birthdays, weddings, and special events. Designed to order with your vision in mind.</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">✨</div>
+          <div class="product-content">
+            <h3>Instagrammable Snacks</h3>
+            <p>Trending treats and artfully decorated baked goods perfect for sharing and social media moments.</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">🎄</div>
+          <div class="product-content">
+            <h3>Seasonal Treats</h3>
+            <p>Limited-edition flavours and festive specials throughout the year to celebrate every season.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section" id="benefits">
+    <div class="container">
+      <div class="benefits-intro">
+        <h2 class="section-heading">Why Choose Golden Crust?</h2>
+        <p class="section-subtext">We combine quality, convenience, and affordability to meet your bakery needs.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <h3>Fresh Daily</h3>
+          <p>All items are baked fresh each morning. No day-old stock, just peak-quality treats.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">⚡</div>
+          <h3>Quick Service</h3>
+          <p>Fast, friendly counter service designed for busy lifestyles and last-minute needs.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💰</div>
+          <h3>Affordable Prices</h3>
+          <p>Premium quality without premium prices. Great value for every budget.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🎨</div>
+          <h3>Custom Orders</h3>
+          <p>Personalised cakes and special requests handled with care and creativity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust/Quality Section -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="trust-content">
+        <div class="trust-text">
+          <h2>Baked with Care, Served with Pride</h2>
+          <p>At Golden Crust Bakery, we believe that great bakery items start with great ingredients and genuine care. Every product reflects our commitment to freshness, quality, and your satisfaction.</p>
+          <ul class="trust-list">
+            <li>Quality ingredients sourced with care</li>
+            <li>Handcrafted daily to ensure freshness</li>
+            <li>Customer satisfaction is our priority</li>
+            <li>Customisation available for special occasions</li>
+          </ul>
+        </div>
+        <div class="trust-visual">👨‍🍳</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interest Section -->
+  <section class="interest-section" id="interest">
+    <div class="container">
+      <div class="interest-header">
+        <h2>Stay Connected</h2>
+        <p>Be the first to know about new products, seasonal treats, special promotions, and exclusive offers tailored to your bakery needs.</p>
+      </div>
+      <div class="forms-container">
+        <!-- Expression of Interest Form -->
+        <div class="form-wrapper primary">
+          <form id="byteforce-registration-form" action="">
+            <h3>Register Your Interest</h3>
+            <p>Share your details to receive updates, exclusive offers, and promotions straight to your inbox.</p>
+            
+            <div class="form-group">
+              <label for="byteforce-name">Your Name *</label>
+              <input 
+                type="text" 
+                id="byteforce-name" 
+                name="name" 
+                required 
+                placeholder="Your name"
+                autocomplete="name"
+              >
+            </div>
+            
+            <div class="form-group">
+              <label for="byteforce-email">Your Email *</label>
+              <input 
+                type="email" 
+                id="byteforce-email" 
+                name="email" 
+                required 
+                placeholder="your@email.com"
+                autocomplete="email"
+              >
+            </div>
+            
+            <button type="submit">Register My Interest</button>
+            <div id="byteforce-registration-status" class="form-status"></div>
+          </form>
+        </div>
+
+        <!-- Update Email Form -->
+        <div class="form-wrapper secondary">
+          <form id="byteforce-update-email-form" action="">
+            <h3>Update Your Email</h3>
+            <p>Already registered? Update your email address to stay connected with us.</p>
+            
+            <div class="form-group">
+              <label for="byteforce-old-email">Current Email *</label>
+              <input 
+                type="email" 
+                id="byteforce-old-email" 
+                name="old_email" 
+                required 
+                placeholder="your@email.com"
+                autocomplete="email"
+              >
+            </div>
+            
+            <div class="form-group">
+              <label for="byteforce-new-email">New Email *</label>
+              <input 
+                type="email" 
+                id="byteforce-new-email" 
+                name="new_email" 
+                required 
+                placeholder="newemail@email.com"
+                autocomplete="email"
+              >
+            </div>
+            
+            <button type="submit">Update Email</button>
+            <div id="byteforce-update-email-status" class="form-status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq-content">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How fresh are your baked goods?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>All our items are baked fresh daily in-house. We start baking early each morning to ensure you get peak-quality products throughout the day. Items are never stored overnight.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I order custom cakes in advance?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! We welcome custom cake orders for birthdays, weddings, and special events. Register your interest through our form to receive details about our custom cake process and how to place your order.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What are your pricing options?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Golden Crust Bakery offers affordable pricing across all our products. We believe quality shouldn't come with a premium price tag. For specific pricing on items or custom orders, register your interest to receive more details.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do you offer seasonal or limited-time treats?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely! We introduce seasonal flavours and limited-edition treats throughout the year. Register to stay updated on new releases and special offerings tailored to each season and celebration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">Golden Crust Bakery</div>
+          <p>Fresh bread, fast service, affordable treats. Made for your lifestyle, baked with care.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#products">Our Products</a></li>
+            <li><a href="#benefits">Why Choose Us</a></li>
+            <li><a href="#interest">Get Updates</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>What We Offer</h4>
+          <ul>
+            <li><a href="#products">Fresh Bread</a></li>
+            <li><a href="#products">Grab-and-Go Breakfast</a></li>
+            <li><a href="#products">Custom Cakes</a></li>
+            <li><a href="#products">Seasonal Treats</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Golden Crust Bakery. All rights reserved. Freshly baked every day.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', function() {
+        const faqItem = this.closest('.faq-item');
+        const isActive = faqItem.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
+        });
+        
+        if (!isActive) {
+          faqItem.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+<!-- byteforce-lead-form-injected -->
+<script>
+(function () {
+  var BYTEFORCE_WEBSITE_ID   = "website-1772";
+  var BYTEFORCE_WEBSITE_NAME = "Marketing Plan - We are an new physical bakery called “Golden Crust Bakery” l";
+  var BYTEFORCE_WEBHOOK_URL  = "https://agenticflows.westus3.cloudapp.azure.com/webhook/user-register";
+
+  function findField(form, patterns) {
+    var candidates = form.querySelectorAll('input, textarea');
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      var haystack = ((el.name || '') + ' ' + (el.id || '') + ' ' + (el.type || '') + ' ' + (el.placeholder || '')).toLowerCase();
+      for (var j = 0; j < patterns.length; j++) {
+        if (haystack.indexOf(patterns[j]) !== -1) return el;
+      }
+    }
+    return null;
+  }
+
+  function showMessage(form, text, isError) {
+    var el = form.querySelector('.byteforce-form-message');
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'byteforce-form-message';
+      el.style.marginTop = '12px';
+      el.style.fontSize = '14px';
+      el.style.fontFamily = 'inherit';
+      form.appendChild(el);
+    }
+    el.textContent = text;
+    el.style.color = isError ? '#dc2626' : '#059669';
+  }
+
+  function attach(form) {
+    if (form.dataset.byteforceBound === '1') return;
+    form.dataset.byteforceBound = '1';
+
+    // Defence-in-depth against native submission ever navigating anywhere —
+    // a form with no action attribute defaults to submitting to the current
+    // document's URL, which for a srcDoc preview iframe resolves to the
+    // PARENT page's own URL (the dashboard), not a blank page. Belt-and-
+    // braces alongside preventDefault() below and the iframe's sandbox
+    // (which already omits allow-forms — see WebsitePreview.jsx).
+    form.setAttribute('action', '#');
+
+    var submitBtn = form.querySelector('button[type="submit"], input[type="submit"]') || form.querySelector('button');
+    var submitting = false;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (submitting) return;
+
+      var emailEl = findField(form, ['email']);
+      var nameEl  = findField(form, ['name']) || form.querySelector('input[type="text"]');
+      var email   = emailEl ? emailEl.value.trim() : '';
+      var name    = nameEl ? nameEl.value.trim() : '';
+
+      if (!email) {
+        showMessage(form, 'Please enter a valid email address.', true);
+        return;
+      }
+
+      submitting = true;
+      var originalText = submitBtn ? submitBtn.textContent : null;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+      }
+
+      fetch(BYTEFORCE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action:      'register',
+          name:        name,
+          email:       email,
+          websiteId:   BYTEFORCE_WEBSITE_ID,
+          websiteName: BYTEFORCE_WEBSITE_NAME,
+          source:      window.location.origin,
+        }),
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Request failed');
+          return res.json().catch(function () { return {}; });
+        })
+        .then(function () {
+          showMessage(form, "Thanks! We've received your submission.", false);
+          form.reset();
+        })
+        .catch(function () {
+          showMessage(form, 'Something went wrong. Please try again.', true);
+        })
+        .finally(function () {
+          submitting = false;
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        });
+    });
+  }
+
+  function init() {
+    var forms = document.querySelectorAll('form');
+    var bound = 0;
+    for (var i = 0; i < forms.length; i++) {
+      // One malformed form (e.g. an AI-generated quirk) shouldn't stop the
+      // rest from getting bound — each form is independent.
+      try {
+        attach(forms[i]);
+        bound++;
+      } catch (err) {
+        console.error('[byteforce-lead-form] failed to bind form', i, err);
+      }
+    }
+    // Verifiable from the browser console — confirms both that this script
+    // ran at all and how many forms it actually bound, without guessing.
+    window.__byteforceLeadForm = { ready: true, formsFound: forms.length, formsBound: bound };
+    console.log('[byteforce-lead-form] ready — found ' + forms.length + ' form(s), bound ' + bound);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
